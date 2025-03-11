@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: Backend for frontend
+  description: API para implementação do pattern BFF
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080'
+    description: API local
+
+paths:
+  /handlerPoint:
+    post:
+      tags:
+        - Person
+      summary: Encaminha requisição de pessoa
+      operationId: person
+      requestBody:
+        description: Informação de pessoa
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Person"
+              properties:
+                name:
+                  type: string
+                  description: Nome da pessoa
+                age:
+                  type: integer
+                  description: Idade do usuário
+                application:
+                  type: string
+                  description: Aplicação atual
+              required:
+                - name
+                - age
+                - application
+      responses:
+        '201':
+          description: Post bem sucedido
+          content:
+            application/json:
+              schema:
+                properties:
+                  token:
+                    type: string
+                    description: Interface atual
+        '401':
+          description: Dados inválidos
+
+
+components:
+  schemas:
+    Person:
+      type: object
+      properties:
+        name:
+          type: string
+        age:
+          type: integer
+        application:
+          type: string
+          enum: [webapp, desktop, mobile, desktop]
+      required:
+        - name
+        - age
+        - appliocation
