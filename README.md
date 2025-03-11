@@ -1,4 +1,4 @@
-# Design Pattern - Circuit Breaker (Disjuntor)
+# Design Pattern - BFF (Backend for Frontend)
 
 > Este repositório contém a implementação de um padrão de projeto nomeado "Backend for frontend", o modelo interceptor do frontend para o backend. Essa implementação é para fins de estudo e prática.
 
